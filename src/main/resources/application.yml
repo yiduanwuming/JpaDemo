@@ -9,4 +9,8 @@ spring:
     platform: org.hibernate.dialect.MySQL5Dialect
     hibernate:
       ddl-auto: update
-    show-sql: false
+    show-sql: true
+
+server:
+  port: 8080
+

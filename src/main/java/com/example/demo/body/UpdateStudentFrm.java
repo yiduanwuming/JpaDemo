@@ -8,7 +8,9 @@ import lombok.Data;
 @Data
 @Builder
 @AllArgsConstructor
-public class AddStudentFrm {
+public class UpdateStudentFrm {
+    @ApiModelProperty("主键")
+    private String id;
     @ApiModelProperty("姓名")
     private String name;
     @ApiModelProperty("年龄")

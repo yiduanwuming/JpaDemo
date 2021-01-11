@@ -12,8 +12,8 @@ public class TimeUtils {
     /**
      * 获取当天开始时间
      */
-    public static Date getDayBegin(){
-        Calendar cal=Calendar.getInstance();
+    public static Date getDayBegin() {
+        Calendar cal = Calendar.getInstance();
         cal.set(Calendar.HOUR_OF_DAY, 0);//0点
         cal.set(Calendar.MINUTE, 0);//0分
         cal.set(Calendar.SECOND, 0);//0秒
@@ -25,8 +25,8 @@ public class TimeUtils {
     /**
      * 获取当天结束时间
      */
-    public static Date getDayEnd(){
-        Calendar cal=Calendar.getInstance();
+    public static Date getDayEnd() {
+        Calendar cal = Calendar.getInstance();
         cal.set(Calendar.HOUR_OF_DAY, 23);//23点
         cal.set(Calendar.MINUTE, 59);//59分
         cal.set(Calendar.SECOND, 59);//59秒
@@ -37,8 +37,8 @@ public class TimeUtils {
     /**
      * 获取昨天开始时间
      */
-    public static Date getBeginDayOfYesterday(){
-        Calendar cal=Calendar.getInstance();
+    public static Date getBeginDayOfYesterday() {
+        Calendar cal = Calendar.getInstance();
         cal.setTime(getDayBegin());//当天开始时间
         cal.add(Calendar.DAY_OF_MONTH, -1);//当天月份天数减1
         return cal.getTime();
@@ -48,8 +48,8 @@ public class TimeUtils {
     /**
      * 获取昨天结束时间
      */
-    public static Date getEndDayOfYesterday(){
-        Calendar cal=Calendar.getInstance();
+    public static Date getEndDayOfYesterday() {
+        Calendar cal = Calendar.getInstance();
         cal.setTime(getDayEnd());//当天结束时间
         cal.add(Calendar.DAY_OF_MONTH, -1);//当天月份天数减1
         return cal.getTime();
@@ -59,8 +59,8 @@ public class TimeUtils {
     /**
      * 获取明天开始时间
      */
-    public static Date getBeginDayOfTomorrow(){
-        Calendar cal=Calendar.getInstance();
+    public static Date getBeginDayOfTomorrow() {
+        Calendar cal = Calendar.getInstance();
         cal.setTime(getDayBegin());//当天开始时间
         cal.add(Calendar.DAY_OF_MONTH, 1);//当天月份天数加1
         return cal.getTime();
@@ -70,8 +70,8 @@ public class TimeUtils {
     /**
      * 获取明天结束时间
      */
-    public static Date getEndDayOfTomorrow(){
-        Calendar cal=Calendar.getInstance();
+    public static Date getEndDayOfTomorrow() {
+        Calendar cal = Calendar.getInstance();
         cal.setTime(getDayEnd());//当天结束时间
         cal.add(Calendar.DAY_OF_MONTH, 1);//当天月份天数加1
         return cal.getTime();
@@ -82,8 +82,8 @@ public class TimeUtils {
      * 获取某个日期的开始时间
      */
     public static Timestamp getDayStartTime(Date d) {
-        Calendar calendar=Calendar.getInstance();
-        if(null!=d){
+        Calendar calendar = Calendar.getInstance();
+        if (null != d) {
             calendar.setTime(d);
         }
         calendar.set(calendar.get(Calendar.YEAR),
@@ -98,8 +98,8 @@ public class TimeUtils {
      * 获取某个日期的结束时间
      */
     public static Timestamp getDayEndTime(Date d) {
-        Calendar calendar=Calendar.getInstance();
-        if(null!=d){
+        Calendar calendar = Calendar.getInstance();
+        if (null != d) {
             calendar.setTime(d);
         }
         calendar.set(calendar.get(Calendar.YEAR),
@@ -113,15 +113,15 @@ public class TimeUtils {
     /**
      * 获取本周的开始时间
      */
-    public static Date getBeginDayOfWeek(){
-        Date date=new Date();
-        Calendar cal=Calendar.getInstance();
+    public static Date getBeginDayOfWeek() {
+        Date date = new Date();
+        Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        int dayOfWeek=cal.get(Calendar.DAY_OF_WEEK);
-        if(dayOfWeek==1){
-            dayOfWeek+=7;
+        int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+        if (dayOfWeek == 1) {
+            dayOfWeek += 7;
         }
-        cal.add(Calendar.DATE, 2-dayOfWeek);
+        cal.add(Calendar.DATE, 2 - dayOfWeek);
         return getDayStartTime(cal.getTime());
     }
 
@@ -129,8 +129,8 @@ public class TimeUtils {
     /**
      * 获取本周的结束时间
      */
-    public static Date getEndDayOfWeek(){
-        Calendar cal=Calendar.getInstance();
+    public static Date getEndDayOfWeek() {
+        Calendar cal = Calendar.getInstance();
         cal.setTime(getBeginDayOfWeek());
         cal.add(Calendar.DAY_OF_WEEK, 6);
         Date weekEndSta = cal.getTime();
@@ -142,14 +142,14 @@ public class TimeUtils {
      * 获取上周开始时间
      */
     public static Date getBeginDayOfLastWeek() {
-        Date date=new Date();
-        Calendar cal=Calendar.getInstance();
+        Date date = new Date();
+        Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        int dayofweek=cal.get(Calendar.DAY_OF_WEEK);
-        if (dayofweek==1) {
-            dayofweek+=7;
+        int dayofweek = cal.get(Calendar.DAY_OF_WEEK);
+        if (dayofweek == 1) {
+            dayofweek += 7;
         }
-        cal.add(Calendar.DATE, 2-dayofweek-7);
+        cal.add(Calendar.DATE, 2 - dayofweek - 7);
         return getDayStartTime(cal.getTime());
     }
 
@@ -157,8 +157,8 @@ public class TimeUtils {
     /**
      * 获取上周的结束时间
      */
-    public static Date getEndDayOfLastWeek(){
-        Calendar cal=Calendar.getInstance();
+    public static Date getEndDayOfLastWeek() {
+        Calendar cal = Calendar.getInstance();
         cal.setTime(getBeginDayOfLastWeek());
         cal.add(Calendar.DAY_OF_WEEK, 6);
         Date weekEndSta = cal.getTime();
@@ -169,9 +169,9 @@ public class TimeUtils {
     /**
      * 获取今年是哪一年
      */
-    public static Integer getNowYear(){
+    public static Integer getNowYear() {
         Date date = new Date();
-        GregorianCalendar gc=(GregorianCalendar)Calendar.getInstance();
+        GregorianCalendar gc = (GregorianCalendar) Calendar.getInstance();
         gc.setTime(date);
         return gc.get(Calendar.YEAR);
     }
@@ -182,7 +182,7 @@ public class TimeUtils {
      */
     public static int getNowMonth() {
         Date date = new Date();
-        GregorianCalendar gc=(GregorianCalendar)Calendar.getInstance();
+        GregorianCalendar gc = (GregorianCalendar) Calendar.getInstance();
         gc.setTime(date);
         return gc.get(Calendar.MONTH) + 1;
     }
@@ -192,8 +192,8 @@ public class TimeUtils {
      * 获取本月的开始时间
      */
     public static Date getBeginDayOfMonth() {
-        Calendar calendar=Calendar.getInstance();
-        calendar.set(getNowYear(), getNowMonth()-1, 1);
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(getNowYear(), getNowMonth() - 1, 1);
         return getDayStartTime(calendar.getTime());
     }
 
@@ -202,10 +202,10 @@ public class TimeUtils {
      * 获取本月的结束时间
      */
     public static Date getEndDayOfMonth() {
-        Calendar calendar=Calendar.getInstance();
-        calendar.set(getNowYear(), getNowMonth()-1, 1);
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(getNowYear(), getNowMonth() - 1, 1);
         int day = calendar.getActualMaximum(5);
-        calendar.set(getNowYear(), getNowMonth()-1, day);
+        calendar.set(getNowYear(), getNowMonth() - 1, day);
         return getDayEndTime(calendar.getTime());
     }
 
@@ -214,8 +214,8 @@ public class TimeUtils {
      * 获取上月的开始时间
      */
     public static Date getBeginDayOfLastMonth() {
-        Calendar calendar=Calendar.getInstance();
-        calendar.set(getNowYear(), getNowMonth()-2, 1);
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(getNowYear(), getNowMonth() - 2, 1);
         return getDayStartTime(calendar.getTime());
     }
 
@@ -224,10 +224,10 @@ public class TimeUtils {
      * 获取上月的结束时间
      */
     public static Date getEndDayOfLastMonth() {
-        Calendar calendar=Calendar.getInstance();
-        calendar.set(getNowYear(), getNowMonth()-2, 1);
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(getNowYear(), getNowMonth() - 2, 1);
         int day = calendar.getActualMaximum(5);
-        calendar.set(getNowYear(), getNowMonth()-2, day);
+        calendar.set(getNowYear(), getNowMonth() - 2, day);
         return getDayEndTime(calendar.getTime());
     }
 
@@ -236,7 +236,7 @@ public class TimeUtils {
      * 获取本年的开始时间
      */
     public static java.util.Date getBeginDayOfYear() {
-        Calendar cal=Calendar.getInstance();
+        Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, getNowYear());
         cal.set(Calendar.MONTH, Calendar.JANUARY);
         cal.set(Calendar.DATE, 1);
@@ -260,10 +260,10 @@ public class TimeUtils {
      * 两个日期相减得到的天数
      */
     public static int getDiffDays(Date beginDate, Date endDate) {
-        if(beginDate==null||endDate==null) {
+        if (beginDate == null || endDate == null) {
             throw new IllegalArgumentException("getDiffDays param is null!");
         }
-        long diff=(endDate.getTime()-beginDate.getTime())/(1000*60*60*24);
+        long diff = (endDate.getTime() - beginDate.getTime()) / (1000 * 60 * 60 * 24);
         return Long.valueOf(diff).intValue();
     }
 
@@ -272,9 +272,9 @@ public class TimeUtils {
      * 两个日期相减得到的毫秒数
      */
     public static long dateDiff(Date beginDate, Date endDate) {
-        long date1ms=beginDate.getTime();
-        long date2ms=endDate.getTime();
-        return date2ms-date1ms;
+        long date1ms = beginDate.getTime();
+        long date2ms = endDate.getTime();
+        return date2ms - date1ms;
     }
 
 
@@ -282,13 +282,13 @@ public class TimeUtils {
      * 获取两个日期中的最大日起
      */
     public static Date max(Date beginDate, Date endDate) {
-        if(beginDate==null) {
+        if (beginDate == null) {
             return endDate;
         }
-        if(endDate==null) {
+        if (endDate == null) {
             return beginDate;
         }
-        if(beginDate.after(endDate)) {//beginDate日期大于endDate
+        if (beginDate.after(endDate)) {//beginDate日期大于endDate
             return beginDate;
         }
         return endDate;
@@ -299,13 +299,13 @@ public class TimeUtils {
      * 获取两个日期中的最小日期
      */
     public static Date min(Date beginDate, Date endDate) {
-        if(beginDate==null) {
+        if (beginDate == null) {
             return endDate;
         }
-        if(endDate==null) {
+        if (endDate == null) {
             return beginDate;
         }
-        if(beginDate.after(endDate)) {
+        if (beginDate.after(endDate)) {
             return endDate;
         }
         return beginDate;
@@ -316,11 +316,11 @@ public class TimeUtils {
      * 获取某月该季度的第一个月
      */
     public static Date getFirstSeasonDate(Date date) {
-        final int[] SEASON={ 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4 };
-        Calendar cal=Calendar.getInstance();
+        final int[] SEASON = {1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4};
+        Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         int sean = SEASON[cal.get(Calendar.MONTH)];
-        cal.set(Calendar.MONTH, sean*3-3);
+        cal.set(Calendar.MONTH, sean * 3 - 3);
         return cal.getTime();
     }
 
@@ -329,9 +329,9 @@ public class TimeUtils {
      * 返回某个日期下几天的日期
      */
     public static Date getNextDay(Date date, int i) {
-        Calendar cal=new GregorianCalendar();
+        Calendar cal = new GregorianCalendar();
         cal.setTime(date);
-        cal.set(Calendar.DATE,cal.get(Calendar.DATE)+i);
+        cal.set(Calendar.DATE, cal.get(Calendar.DATE) + i);
         return cal.getTime();
     }
 
@@ -340,21 +340,20 @@ public class TimeUtils {
      * 返回某个日期前几天的日期
      */
     public static Date getFrontDay(Date date, int i) {
-        Calendar cal=new GregorianCalendar();
+        Calendar cal = new GregorianCalendar();
         cal.setTime(date);
-        cal.set(Calendar.DATE, cal.get(Calendar.DATE)-i);
+        cal.set(Calendar.DATE, cal.get(Calendar.DATE) - i);
         return cal.getTime();
     }
-
 
 
     /**
      * 获取某年某月按天切片日期集合（某个月间隔多少天的日期集合）
      */
-    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public static List getTimeList(int beginYear, int beginMonth, int k) {
         List list = new ArrayList();
-        Calendar begincal=new GregorianCalendar(beginYear,beginMonth, 1);
+        Calendar begincal = new GregorianCalendar(beginYear, beginMonth, 1);
         int max = begincal.getActualMaximum(Calendar.DATE);
         for (int i = 1; i < max; i = i + k) {
             list.add(begincal.getTime());
@@ -369,32 +368,30 @@ public class TimeUtils {
     /**
      * 获取某年某月到某年某月按天的切片日期集合（间隔天数的集合）
      */
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({"rawtypes", "unchecked"})
     public static List getTimeList(int beginYear, int beginMonth, int endYear, int endMonth, int k) {
         List list = new ArrayList();
-        if (beginYear==endYear){
-            for(int j=beginMonth;j<=endMonth;j++){
-                list.add(getTimeList(beginYear,j,k));
+        if (beginYear == endYear) {
+            for (int j = beginMonth; j <= endMonth; j++) {
+                list.add(getTimeList(beginYear, j, k));
             }
-        }else{
+        } else {
             {
-                for(int j=beginMonth;j<12;j++){
-                    list.add(getTimeList(beginYear,j,k));
+                for (int j = beginMonth; j < 12; j++) {
+                    list.add(getTimeList(beginYear, j, k));
                 }
-                for(int i=beginYear+1;i<endYear;i++) {
-                    for (int j=0; j<12; j++) {
-                        list.add(getTimeList(i,j,k));
+                for (int i = beginYear + 1; i < endYear; i++) {
+                    for (int j = 0; j < 12; j++) {
+                        list.add(getTimeList(i, j, k));
                     }
                 }
-                for (int j=0;j <= endMonth; j++) {
+                for (int j = 0; j <= endMonth; j++) {
                     list.add(getTimeList(endYear, j, k));
                 }
             }
         }
         return list;
     }
-
-
 
 
     //=================================时间格式转换==========================
@@ -420,12 +417,11 @@ public class TimeUtils {
     /**
      * 将CST时间类型字符串进行格式化输出
      */
-    public static String CSTFormat(String str) throws ParseException{
+    public static String CSTFormat(String str) throws ParseException {
         SimpleDateFormat formatter = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
         Date date = formatter.parse(str);
         return dateFormat(date);
     }
-
 
 
     /**
@@ -436,19 +432,17 @@ public class TimeUtils {
     }
 
 
-
-
     //====================================其他常见日期操作方法======================
 
     /**
      * 判断当前日期是否在[startDate, endDate]区间
      *
      * @param startDate 开始日期
-     * @param endDate 结束日期
+     * @param endDate   结束日期
      * @author jqlin
      */
-    public static boolean isEffectiveDate(Date startDate, Date endDate){
-        if(startDate == null || endDate == null){
+    public static boolean isEffectiveDate(Date startDate, Date endDate) {
+        if (startDate == null || endDate == null) {
             return false;
         }
         long currentTime = new Date().getTime();
@@ -459,6 +453,7 @@ public class TimeUtils {
 
     /**
      * 得到二个日期间的间隔天数
+     *
      * @param secondString：后一个日期
      * @param firstString：前一个日期
      */
@@ -478,6 +473,7 @@ public class TimeUtils {
 
     /**
      * 时间前推或后推分钟,其中JJ表示分钟.
+     *
      * @param StringTime：时间
      * @param minute：分钟（有正负之分）
      */
@@ -506,14 +502,14 @@ public class TimeUtils {
     }
 
 
-
     /**
      * 得到一个时间延后或前移几天的时间
+     *
      * @param nowDate：时间
      * @param delay：前移或后延的天数
      */
     public static String getNextDay(String nowDate, String delay) {
-        try{
+        try {
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             String myDate;
             Date d = strToDate(nowDate);
@@ -521,7 +517,7 @@ public class TimeUtils {
             d.setTime(myTime * 1000);
             myDate = format.format(d);
             return myDate;
-        }catch(Exception e){
+        } catch (Exception e) {
             return "";
         }
     }
@@ -539,11 +535,11 @@ public class TimeUtils {
         GregorianCalendar gc = (GregorianCalendar) Calendar.getInstance();
         gc.setTime(d);
         int year = gc.get(Calendar.YEAR);
-        if ((year % 400) == 0){
+        if ((year % 400) == 0) {
             return true;
-        }else if ((year % 4) == 0){
+        } else if ((year % 4) == 0) {
             return (year % 100) != 0;
-        }else{
+        } else {
             return false;
         }
     }
@@ -571,17 +567,16 @@ public class TimeUtils {
         cal1.setTime(date1);
         cal2.setTime(date2);
         int subYear = cal1.get(Calendar.YEAR) - cal2.get(Calendar.YEAR);
-        if(0 == subYear) {
+        if (0 == subYear) {
             return cal1.get(Calendar.WEEK_OF_YEAR) == cal2.get(Calendar.WEEK_OF_YEAR);
-        }else if(1 == subYear && 11 == cal2.get(Calendar.MONTH)) {
+        } else if (1 == subYear && 11 == cal2.get(Calendar.MONTH)) {
             // 如果12月的最后一周横跨来年第一周的话则最后一周即算做来年的第一周
             return cal1.get(Calendar.WEEK_OF_YEAR) == cal2.get(Calendar.WEEK_OF_YEAR);
-        }else if (-1 == subYear && 11 == cal1.get(Calendar.MONTH)) {
+        } else if (-1 == subYear && 11 == cal1.get(Calendar.MONTH)) {
             return cal1.get(Calendar.WEEK_OF_YEAR) == cal2.get(Calendar.WEEK_OF_YEAR);
         }
         return false;
     }
-
 
 
     /**
@@ -593,12 +588,13 @@ public class TimeUtils {
         if (week.length() == 1)
             week = "0" + week;
         String year = Integer.toString(c.get(Calendar.YEAR));
-        return year +"年第"+ week+"周";
+        return year + "年第" + week + "周";
     }
 
 
     /**
      * 获得一个日期所在的周的星期几的日期，如要找出2002年2月3日所在周的星期一是几号
+     *
      * @param sdate：日期
      * @param num：星期几（星期天是一周的第一天）
      */
@@ -609,23 +605,23 @@ public class TimeUtils {
         c.setTime(dd);
         switch (num) {
             case "1":
-// 返回星期一所在的日期
+        // 返回星期一所在的日期
                 c.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
                 break;
             case "2":
-// 返回星期二所在的日期
+        // 返回星期二所在的日期
                 c.set(Calendar.DAY_OF_WEEK, Calendar.TUESDAY);
                 break;
             case "3":
-// 返回星期三所在的日期
+        // 返回星期三所在的日期
                 c.set(Calendar.DAY_OF_WEEK, Calendar.WEDNESDAY);
                 break;
             case "4":
-// 返回星期四所在的日期
+        // 返回星期四所在的日期
                 c.set(Calendar.DAY_OF_WEEK, Calendar.THURSDAY);
                 break;
             case "5":
-// 返回星期五所在的日期
+        // 返回星期五所在的日期
                 c.set(Calendar.DAY_OF_WEEK, Calendar.FRIDAY);
                 break;
             case "6":
@@ -659,7 +655,7 @@ public class TimeUtils {
     /**
      * 根据一个日期，返回是星期几的字符串
      */
-    public static String getWeekStr(String sdate){
+    public static String getWeekStr(String sdate) {
         String str;
         str = getWeek(sdate);
         switch (str) {
@@ -759,5 +755,5 @@ public class TimeUtils {
 //    public static String getNo(int k) {
 //        return getUserDate("yyyyMMddhhmmss") + getRandom(k);
 //    }
-    
+
 }

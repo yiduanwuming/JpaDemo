@@ -17,5 +17,5 @@ public class User {
     private String name;
 
     @Column(name = "sex")
-    private int sex;
+    private Integer sex;
 }

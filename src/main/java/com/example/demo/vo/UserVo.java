@@ -1,9 +1,11 @@
 package com.example.demo.vo;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
+@JsonInclude(value= JsonInclude.Include.NON_NULL)
 public class UserVo {
 
     @ApiModelProperty("id")
@@ -13,5 +15,5 @@ public class UserVo {
     private String name;
 
     @ApiModelProperty("性别")
-    private int sex;
+    private Integer sex;
 }

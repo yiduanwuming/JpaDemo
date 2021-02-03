@@ -10,7 +10,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class UpdateStudentFrm {
     @ApiModelProperty("主键")
-    private String id;
+    private int id;
     @ApiModelProperty("姓名")
     private String name;
     @ApiModelProperty("年龄")

@@ -20,7 +20,7 @@ public class Swagger2 {
                 .apiInfo(apiInfo())
                 .select()
                 //扫描包路径
-                .apis(RequestHandlerSelectors.basePackage("com.example.demo.controller"))
+                .apis(RequestHandlerSelectors.basePackage("service.interfaces.facade"))
                 .paths(PathSelectors.any())
                 .build();
     }

@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class FindByIdFrm {
     @ApiModelProperty()
-    private String id;
+    private int id;
 }

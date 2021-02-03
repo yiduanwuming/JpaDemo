@@ -1,6 +1,7 @@
 package service.domain.service;
 
 
+import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -58,8 +59,8 @@ public class UserService {
     public Page<User> pageFindStudentCondition(PageFindStudentConditionFrm frm) {
         Specification<User> specification = (root, criteriaQuery, criteriaBuilder) -> {
             Predicate conjunction = criteriaBuilder.conjunction();
-            String id = frm.getId();
-            if (!StringUtils.isEmpty(id)) {
+            val id = frm.getId();
+            if (id != null) {
                 conjunction = criteriaBuilder.and(conjunction, criteriaBuilder.equal(root.get("id"), id));
             }
             String name = frm.getName();
